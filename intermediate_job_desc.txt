@@ -1,0 +1,29 @@
+Job highlights
+Identified by Google from the original job post
+Qualifications
+•
+Requires Bachelor’s (or foreign educ
+•
+equiv.) Degree in Computer Engineering, Computer Science, Software Engineering or a related field
+•
+Five (5) yrs
+•
+(post-degree, progressive) experience in Job Offered or related
+•
+Experience must have included use of C, Java, C++ and Python
+•
+Architecting and developing large scale distributed systems
+1 more item
+Responsibilities
+•
+Designing, developing and leading Truera Machine Learning platform
+•
+Developing data-intensive software solutions and designing and presenting a planned, well-coordinated release cycle for model training and deployment, following proper guidelines, documenting and monitoring important features, internal metrics, and changes shipped out in the release of new models for recommendation and fine-grained classification
+•
+Designing algorithms for high-performance computing for machine learning applications
+•
+Implementation of multithreaded applications in C, Java, C++ and Python for machine learning technologies such as neural networks
+•
+Developing APIs and system architecture, pruning unnecessary complexities to ensure the system remains up to standards and user-friendly
+•
+Designing data interfaces for common Big Data storage and streaming pipelines such as Apache Arrow, ORC, Parquet or Spark and MapReduce including architecting and developing large-scale
