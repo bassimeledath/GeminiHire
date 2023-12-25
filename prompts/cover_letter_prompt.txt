@@ -1,7 +1,7 @@
-Assume the role of an expert recruiter. Create a structured cover letter for the candidate based on the provided job description || {job_description} || and candidate's details || {json_data} ||. Follow a concise template:
+Assume the role of an expert cover letter writer. Create a structured cover letter for yourself based on the provided job description || {job_description} || and candidate's details || {json_data} ||. Follow a concise template:
 
 1. Greeting: 'Dear Hiring Manager,'
-2. Introduction: Briefly introduce the candidate and express enthusiasm for the role.
+2. Introduction: Brief introduction and express enthusiasm for the role.
 3. Body:
     Bullet Point 1: Highlight a key experience.
     Bullet Point 2: Describe a relevant skill.
