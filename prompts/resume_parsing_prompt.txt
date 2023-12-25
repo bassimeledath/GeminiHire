@@ -1,0 +1,25 @@
+For the attached resume, give the information in the following json format:
+{
+  \"Education\": [
+    {
+      \"Institution\": \"<Name of Institution>\",
+      \"Degree\": \"<Degree Obtained>\",
+      \"Field of Study\": \"<Field of Study>\",
+      \"Start Date\": \"<Start Date>\",
+      \"End Date\": \"<End Date or \'Present\'>\"
+    }
+    // Additional entries if more than one degree
+  ],
+  \"Work Experience\": [
+    {
+      \"Company\": \"<Company Name>\",
+      \"Role\": \"<Job Title>\",
+      \"Start Date\": \"<Start Date>\",
+      \"End Date\": \"<End Date or \'Present\'>\",
+      \"Responsibilities\": \"<Key Responsibilities and Achievements>\"
+    }
+    // Additional entries for more work experiences
+  ],
+  \"Skills\": \"<List of skills>\"
+}
+Note: The model should be able to handle cases where some sections (like Projects or Certifications) are not present in the resume. In such cases, these sections should be omitted from the JSON output.

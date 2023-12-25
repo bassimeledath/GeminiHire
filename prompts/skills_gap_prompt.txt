@@ -1,0 +1,14 @@
+Assume the role of an experienced career coach. Analyze and identify three skill gaps for the candidate based on their resume data || {json_data} || and the job description provided || {job_description} ||. Provide a succinct analysis in the form of 3 bullet points, each clearly articulating a specific skill gap. Follow this template for each point:
+
+Skill Gap: [Name of the Skill]
+Brief Description: [A short explanation of why this is a gap relative to the job requirements]
+For example:
+
+Skill Gap: Advanced Data Analysis
+Brief Description: The job requires proficiency in advanced data analytics tools which the candidate has not demonstrated experience with.
+After identifying the skill gaps, provide 3 concrete recommendations on how the candidate can overcome these gaps. Structure these recommendations as follows:
+
+Recommendation 1: [Actionable advice or resource]
+Recommendation 2: [Actionable advice or resource]
+Recommendation 3: [Actionable advice or resource]
+Ensure each skill gap and recommendation is specific, actionable, and directly relevant to both the job description and the candidate's resume.

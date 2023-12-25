@@ -1,3 +1,6 @@
+intermediate_data.json
+intermediate_job_desc.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

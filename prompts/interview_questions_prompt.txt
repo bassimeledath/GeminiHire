@@ -1,0 +1,10 @@
+Assume the role of an experienced interviewer. Based on the following work experience data || {work_experience} ||, craft 5 interview questions. Ensure a balance of 3 technical and 2 behavioral questions. Each question should be directly related to the provided work experience, probing deep into the candidate's skills and experiences. Follow this format:
+
+Technical Question 1: [Specific to a skill or experience]
+Technical Question 2: [Pertaining to a project or responsibility]
+Technical Question 3: [Related to problem-solving or technical knowledge]
+Behavioral Question 1: [Focused on a past experience or decision-making]
+Behavioral Question 2: [Related to teamwork or communication]
+Design the questions to be specific, concise, and relevant to the candidate's work history, eliciting insightful responses that demonstrate their suitability for the role.
+
+The experience of the candidate:

@@ -8,7 +8,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-genai.configure(api_key=os.getenv("API_KEY"))
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model_vision = genai.GenerativeModel('gemini-pro-vision')
 model_text = genai.GenerativeModel("gemini-pro")
 
@@ -16,6 +16,15 @@ model_text = genai.GenerativeModel("gemini-pro")
 # Global variable or file path to store intermediate data
 INTERMEDIATE_JSON_PATH = "intermediate_data.json"
 INTERMEDIATE_JOB_DESC_PATH = "intermediate_job_desc.txt"
+
+
+def load_prompt(filename):
+    """Function to load a prompt from a file"""
+    try:
+        with open(filename, "r") as file:
+            return file.read()
+    except Exception as e:
+        return f"Error loading prompt: {e}"
 
 
 def process_pdf_and_save_job_desc(pdf_file, job_description):
@@ -34,31 +43,7 @@ def process_pdf_and_save_job_desc(pdf_file, job_description):
     # Substitute this with the actual computation or model invocation
     # For example, using the genai model:
     # Define the prompt you want to use
-    prompt = """For the attached resume, give the information in the following json format:
-{
-  \"Education\": [
-    {
-      \"Institution\": \"<Name of Institution>\",
-      \"Degree\": \"<Degree Obtained>\",
-      \"Field of Study\": \"<Field of Study>\",
-      \"Start Date\": \"<Start Date>\",
-      \"End Date\": \"<End Date or \'Present\'>\"
-    }
-    // Additional entries if more than one degree
-  ],
-  \"Work Experience\": [
-    {
-      \"Company\": \"<Company Name>\",
-      \"Role\": \"<Job Title>\",
-      \"Start Date\": \"<Start Date>\",
-      \"End Date\": \"<End Date or \'Present\'>\",
-      \"Responsibilities\": \"<Key Responsibilities and Achievements>\"
-    }
-    // Additional entries for more work experiences
-  ],
-  \"Skills\": \"<List of skills>\"
-}
-Note: The model should be able to handle cases where some sections (like Projects or Certifications) are not present in the resume. In such cases, these sections should be omitted from the JSON output."""
+    prompt = load_prompt("prompts/resume_parsing_prompt.txt")
     response = model_vision.generate_content([prompt, image])
     json_data = response.text
 
@@ -69,7 +54,7 @@ Note: The model should be able to handle cases where some sections (like Project
     with open(INTERMEDIATE_JOB_DESC_PATH, "w") as file:
         file.write(job_description)
 
-    return image
+    return image, json_data
 
 
 def generate_interview_questions():
@@ -78,7 +63,7 @@ def generate_interview_questions():
     # from the json_data or pass it directly as part of the prompt.
     with open(INTERMEDIATE_JSON_PATH, "r") as json_file:
         json_data = json.load(json_file)
-    prompt = "Give three interview questions based on the following work experience data: " + json_data
+    prompt = load_prompt("prompts/interview_questions_prompt.txt") + json_data
 
     # Generate responses using the model
     responses = model_text.generate_content(prompt)
@@ -107,11 +92,10 @@ def generate_skill_gap_analysis():
             job_description = file.read()
 
         # Construct a detailed prompt for the Gemini model
-        prompt = f"Analyze the skill gaps for the following candidate based on their resume data and the job description provided. \n\nResume Data: {json_data}\n\nJob Description: {job_description}\n\nProvide a detailed skill gap analysis and recommendations for improvement."
-
+        prompt = load_prompt("prompts/skills_gap_prompt.txt").replace(
+            "job_description", job_description).replace("json_data", json_data)
         # Call the Gemini model to generate the skill gap analysis
-        response = model_text.generate_content(prompt, stream=True)
-        response.resolve()
+        response = model_text.generate_content(prompt)
 
         # Format and return the skill gap analysis
         return response.text
@@ -139,7 +123,8 @@ def generate_cover_letter():
             json_data = file.read()
 
         # Create a prompt for the cover letter
-        prompt = f"Create a cover letter based on this job description: {job_description} and the candidate's details: {json_data}"
+        prompt = load_prompt("prompts/cover_letter_prompt.txt").replace(
+            "job_description", job_description).replace("json_data", json_data)
 
         # Generate the cover letter using the model
         response = model_text.generate_content(prompt, stream=True)
@@ -170,11 +155,18 @@ def display_json():
         return "No data available yet. Please run the first tab."
 
 
+def gradio_pdf_interface(pdf_content, job_description):
+    # Wrapper patchwork :c
+    image, _ = process_pdf_and_save_job_desc(
+        pdf_content, job_description)  # Get both but only use image
+    return image
+
+
 # Define individual interfaces for each tab
 pdf_interface = gr.Interface(
-    fn=process_pdf_and_save_job_desc,
+    fn=gradio_pdf_interface,
     inputs=[gr.File(type="binary"), gr.Textbox(label="Job Description")],
-    outputs=gr.Image(),  # Adjust as per your existing outputs
+    outputs=gr.Image(),
     title="PDF Processing and Job Description"
 )
 json_interface = gr.Interface(

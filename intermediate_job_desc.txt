@@ -1,29 +1,6 @@
-Job highlights
-Identified by Google from the original job post
-Qualifications
-•
-Requires Bachelor’s (or foreign educ
-•
-equiv.) Degree in Computer Engineering, Computer Science, Software Engineering or a related field
-•
-Five (5) yrs
-•
-(post-degree, progressive) experience in Job Offered or related
-•
-Experience must have included use of C, Java, C++ and Python
-•
-Architecting and developing large scale distributed systems
-1 more item
-Responsibilities
-•
-Designing, developing and leading Truera Machine Learning platform
-•
-Developing data-intensive software solutions and designing and presenting a planned, well-coordinated release cycle for model training and deployment, following proper guidelines, documenting and monitoring important features, internal metrics, and changes shipped out in the release of new models for recommendation and fine-grained classification
-•
-Designing algorithms for high-performance computing for machine learning applications
-•
-Implementation of multithreaded applications in C, Java, C++ and Python for machine learning technologies such as neural networks
-•
-Developing APIs and system architecture, pruning unnecessary complexities to ensure the system remains up to standards and user-friendly
-•
-Designing data interfaces for common Big Data storage and streaming pipelines such as Apache Arrow, ORC, Parquet or Spark and MapReduce including architecting and developing large-scale
+Job: Software Engineer At Truera
+Design and implement complex distributed systems, build APIs around AI/ML observability, and partner with various engineers and product managers for new products and features.
+Engage in customer interactions to drive product features, review design and code, ensure high-quality deliverables, and take significant ownership of development with a pragmatic, results-driven approach.
+Advocate for engineering efficiency through continuous deployment, automation, monitoring, and development of self-healing systems while maintaining scalability, availability, and latency.
+Possess strong communication skills, provide mentoring, lead and foster team development, and continuously learn and grow while pushing the team and sharing knowledge.
+Require a BS in Computer Science or equivalent, 4+ years in distributed data systems, expertise in Java/Python/Go, and experience with data infrastructure and modern cloud-based architectures; experience in ML and container technologies is a plus.
